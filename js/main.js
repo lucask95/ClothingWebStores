@@ -14,6 +14,7 @@ var filteredStoresList = [];
 function displayTable() {
     $("#storesTable").html("");
 
+    // draw N = nDisplay rows in the table
     for(var i = nStart; i < (nStart + nDisplay); i++) {
         var store = workingList[i];
         var rowText = "<tr><td><a href=\"" + store.URL + "\">" + store.Name +
@@ -27,9 +28,12 @@ function displayPagination() {
     var numPages = Math.ceil(workingList.length / nDisplay);
     currentPage = Math.floor(nStart / nDisplay) + 1;
 
+    // clear, then draw previous button
     $("#pageSwitch").html("");
     $("#pageSwitch").append("<li><a class=\"circleBtn\" onClick=\"prevPage()\"><</a></li>");
 
+    // display numbers in the middle
+    // if i == currentPage, disable click on that number
     for(var i = 1; i <= numPages; i++) {
         if (i == currentPage)
             $("#pageSwitch").append("<li><strong>" + i + "</strong></li>");
@@ -37,6 +41,7 @@ function displayPagination() {
             $("#pageSwitch").append("<li><a href=\"#\" onClick=\"goToPage(" + i + ")\">" + i + "</a></li>");
     }
 
+    // draw next button
     $("#pageSwitch").append("<li><a class=\"circleBtn\" onClick=\"nextPage()\">></a></li>");
 }
 
@@ -51,6 +56,7 @@ function redrawPage() {
 
 
 function prevPage() {
+    // if not already at the first page, move to previous page
     if (nStart == 0)
         return;
     nStart -= nDisplay;
@@ -58,6 +64,7 @@ function prevPage() {
 }
 
 function nextPage() {
+    // if not already at the last page, move to previous page
     var newStart = nStart + nDisplay;
     if (newStart > workingList.length - 1)
         return;
@@ -66,11 +73,13 @@ function nextPage() {
 }
 
 function goToPage(n) {
+    // Go to page n
     nStart = (n - 1) * nDisplay;
     redrawPage();
 }
 
 function displayNStores() {
+    // display n stores per page
     var selectedVal = $("#displayNumber").val();
     if (selectedVal == "all")
         nDisplay = workingList.length;
@@ -97,14 +106,16 @@ function performSearch() {
     var query = $("#searchInput").val();
     var searchCategory = $("#searchCategory").val();
     filteredStoresList = [];
+
     for (var i = 0; i < storesList.length; i++) {
         var store = storesList[i];
         if (store[searchCategory].toLowerCase().includes(query.toLowerCase()))
             filteredStoresList.push(store);
     }
+
     workingList = filteredStoresList;
-    $("#clearSearchBtn").show();
     nStart = 0;
+    $("#clearSearchBtn").show();
     redrawPage();
 }
 
@@ -114,10 +125,15 @@ function performSearch() {
 
 
 $(document).ready(function() {
+    // hide button, set working list
     $("#clearSearchBtn").hide();
     workingList = storesList;
+
+    // draw page
     displayTable();
     displayPagination();
+
+    // bind actions to events
     $("#displayNumber").on("change", displayNStores);
     $("#searchBtn").on("click", performSearch);
     $("#searchInput").on("keypress", function(e) {
