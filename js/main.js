@@ -1,12 +1,21 @@
+// TODO: Allow sort by name, price, etc.
+
 var currentPage = 1;
 var nStart = 0;
 var nDisplay = 25;
+var workingList = []
+var filteredStoresList = [];
+
+
+// Drawing Page
+// ---------------------------------------------------- //
+
 
 function displayTable() {
     $("#storesTable").html("");
 
     for(var i = nStart; i < (nStart + nDisplay); i++) {
-        var store = storesList[i];
+        var store = workingList[i];
         var rowText = "<tr><td><a href=\"" + store.URL + "\">" + store.Name +
             "</a></td><td>" + store.Keywords + "</td><td>" + store.Price +
             "</td><td>" + store.Country + "</td><td>" + store.Notes + "</td></tr>";
@@ -15,7 +24,7 @@ function displayTable() {
 }
 
 function displayPagination() {
-    var numPages = Math.ceil(storesList.length / nDisplay);
+    var numPages = Math.ceil(workingList.length / nDisplay);
     currentPage = Math.floor(nStart / nDisplay) + 1;
 
     $("#pageSwitch").html("");
@@ -36,6 +45,11 @@ function redrawPage() {
     displayTable();
 }
 
+
+// Page Navigation
+// ---------------------------------------------------- //
+
+
 function prevPage() {
     if (nStart == 0)
         return;
@@ -45,7 +59,7 @@ function prevPage() {
 
 function nextPage() {
     var newStart = nStart + nDisplay;
-    if (newStart > storesList.length - 1)
+    if (newStart > workingList.length - 1)
         return;
     nStart += nDisplay;
     redrawPage();
@@ -59,18 +73,63 @@ function goToPage(n) {
 function displayNStores() {
     var selectedVal = $("#displayNumber").val();
     if (selectedVal == "all")
-        nDisplay = storesList.length;
+        nDisplay = workingList.length;
     else
         nDisplay = Number(selectedVal);
     nStart = 0;
     redrawPage();
 }
 
+
+// Search
+// ---------------------------------------------------- //
+
+
+function clearSearch() {
+    $("#searchInput").val("");
+    workingList = storesList;
+    $("#clearSearchBtn").hide();
+    nStart = 0;
+    redrawPage();
+}
+
+function performSearch() {
+    var query = $("#searchInput").val();
+    var searchCategory = $("#searchCategory").val();
+    filteredStoresList = [];
+    for (var i = 0; i < storesList.length; i++) {
+        var store = storesList[i];
+        if (store[searchCategory].toLowerCase().includes(query.toLowerCase()))
+            filteredStoresList.push(store);
+    }
+    workingList = filteredStoresList;
+    $("#clearSearchBtn").show();
+    nStart = 0;
+    redrawPage();
+}
+
+
+// Perform once on load
+// ---------------------------------------------------- //
+
+
 $(document).ready(function() {
+    $("#clearSearchBtn").hide();
+    workingList = storesList;
     displayTable();
     displayPagination();
-    $("#displayNumber").on("change", displayNStores)
+    $("#displayNumber").on("change", displayNStores);
+    $("#searchBtn").on("click", performSearch);
+    $("#searchInput").on("keypress", function(e) {
+        if (e.keyCode == 13)
+            performSearch();
+    });
 });
+
+
+// Stores
+// ---------------------------------------------------- //
+
 
 var storesList = [
   {

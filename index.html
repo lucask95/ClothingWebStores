@@ -13,44 +13,68 @@
 
 <body>
 
-	<div class="container u-full-width">
+	<div class="u-full-width">
 
 		<div class="row" id="titlebar">
 			<div class="twelve columns">
-				<h2>"Where can I buy clothes?"</h2>
+				<h2></h2>
 			</div>
 		</div>
 
 		<div class="row pagination-row">
-			<div class="twelve columns">
+
+			<div class="five columns">
+
+				<!-- Search
+				---------------------------------------------->
+
+				<span id="searchSpan">
+					<input type="text" id="searchInput" placeholder="Search" />
+					<select id="searchCategory">
+						<option value="Name">Name</option>
+						<option value="Keywords">Keywords</option>
+						<option value="Price">Price</option>
+						<option value="Country">Country</option>
+						<option value="Notes">Notes</option>
+					</select>
+					<button id="searchBtn">Search</button>
+					<button id="clearSearchBtn" onClick="clearSearch()">Clear Search</button>
+				</span>
+
+			</div>
+
+			<div class="seven columns">
+
+				<!-- Stores per page
+				---------------------------------------------->
+
 				<span class="formSpan">
 					Display <select id="displayNumber">
 						<option value="25">25</option>
 						<option value="50">50</option>
 						<option value="100">100</option>
 						<option value="all">All</option>
-					</select> stores.
+					</select> stores per page.
 				</span>
+
+				<!-- Pagination
+				---------------------------------------------->
+
 				<nav>
 					<ul id="pageSwitch">
 					</ul>
 				</nav>
-				<span>
-					<input type="text" id="searchInput" placeholder="Search" />
-					<select id="searchCategory">
-						<option value="name">Name</option>
-						<option value="keywords">Keywords</option>
-						<option value="price">Price</option>
-						<option value="country">Country</option>
-						<option value="notes">Notes</option>
-					</select>
-				</span>
+
 			</div>
+
 		</div>
 
 		<div class="row" id="contentarea">
 			<div class="twelve columns">
 				<table class="u-full-width">
+
+					<!-- Table Header
+					---------------------------------------------->
 
 					<thead>
 						<tr>
@@ -61,6 +85,9 @@
 							<th>Notes</th>
 						</tr>
 					</thead>
+
+					<!-- Table Body
+					---------------------------------------------->
 
 					<tbody id="storesTable">
 					</tbody>
