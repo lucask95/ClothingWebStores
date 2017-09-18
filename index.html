@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Clothing Web Stores</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/skeleton.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+	<div class="container u-full-width">
+
+		<div class="row" id="titlebar">
+			<div class="twelve columns">
+				<h2>Clothing Web Stores</h2>
+			</div>
+		</div>
+
+		<div class="row pagination-row">
+			<div class="twelve columns">
+				<span class="num-stores-span">
+					Display <select id="displayNumber">
+						<option value="25">25</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+						<option value="all">All</option>
+					</select> stores.
+				</span>
+				<nav>
+					<ul id="pageSwitch">
+					</ul>
+				</nav>
+			</div>
+		</div>
+
+		<div class="row" id="contentarea">
+			<div class="twelve columns">
+				<table class="u-full-width">
+
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Keywords</th>
+							<th>Price</th>
+							<th>Country</th>
+							<th>Notes</th>
+						</tr>
+					</thead>
+
+					<tbody id="storesTable">
+					</tbody>
+
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/lodash.min.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
