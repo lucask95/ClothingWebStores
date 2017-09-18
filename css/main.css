@@ -1,28 +1,6 @@
 body {
     font-family: 'Roboto', sans-serif;
-}
-
-nav {
-    margin-top: 10px;
-}
-
-nav ul {
-    list-style: none;
-}
-
-nav ul li {
-    display: inline;
-    padding: 5px;
-}
-
-select {
-    margin: 0 10px 0 10px;
-    height: 30px;
-    padding: 4px 8px; /* The 6px vertically centers text on FF, ignored by Webkit */
-}
-
-#storesTable tr:nth-child(odd){
-  background-color: #f2f5f9;
+    font-size: 1.3rem;
 }
 
 #titlebar {
@@ -45,6 +23,50 @@ select {
     padding-bottom: 0px;
 }
 
-.num-stores-span {
+.formSpan {
     padding: 0px 5px;
+}
+
+.circleBtn {
+    border-radius: 50%;
+    background-color: #ed7a00;
+    color: white;
+    padding: 3px 8px;
+}
+
+.circleBtn:hover {
+    cursor: pointer;
+    background-color: #c46500;
+    color: white;
+}
+
+.formSpan select {
+    margin: 0 10px 0 10px;
+    height: 30px;
+    padding: 4px 8px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    padding: 5px;
+}
+
+#storesTable tr:nth-child(odd){
+  background-color: #f2f5f9;
+}
+
+#storesTable td:first-child, th:first-child {
+    padding-left: 10px;
+}
+
+#storesTable td:nth-child(5) {
+    padding-right: 5px;
 }

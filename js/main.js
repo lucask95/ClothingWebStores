@@ -19,7 +19,7 @@ function displayPagination() {
     currentPage = Math.floor(nStart / nDisplay) + 1;
 
     $("#pageSwitch").html("");
-    $("#pageSwitch").append("<li><a href=\"#\" onClick=\"prevPage()\">Prev</a></li>");
+    $("#pageSwitch").append("<li><a class=\"circleBtn\" onClick=\"prevPage()\"><</a></li>");
 
     for(var i = 1; i <= numPages; i++) {
         if (i == currentPage)
@@ -28,7 +28,7 @@ function displayPagination() {
             $("#pageSwitch").append("<li><a href=\"#\" onClick=\"goToPage(" + i + ")\">" + i + "</a></li>");
     }
 
-    $("#pageSwitch").append("<li><a href=\"#\" onClick=\"nextPage()\">Next</a></li>");
+    $("#pageSwitch").append("<li><a class=\"circleBtn\" onClick=\"nextPage()\">></a></li>");
 }
 
 function redrawPage() {
