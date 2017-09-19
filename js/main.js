@@ -38,7 +38,7 @@ function displayPagination() {
         if (i == currentPage)
             $("#pageSwitch").append("<li><strong>" + i + "</strong></li>");
         else
-            $("#pageSwitch").append("<li><a href=\"#\" onClick=\"goToPage(" + i + ")\">" + i + "</a></li>");
+            $("#pageSwitch").append("<li><a class=\"numLink\" onClick=\"goToPage(" + i + ")\">" + i + "</a></li>");
     }
 
     // draw next button
@@ -60,6 +60,7 @@ function prevPage() {
     if (nStart == 0)
         return;
     nStart -= nDisplay;
+    changeSort();
     redrawPage();
 }
 
@@ -69,12 +70,14 @@ function nextPage() {
     if (newStart > workingList.length - 1)
         return;
     nStart += nDisplay;
+    changeSort();
     redrawPage();
 }
 
 function goToPage(n) {
     // Go to page n
     nStart = (n - 1) * nDisplay;
+    changeSort();
     redrawPage();
 }
 
@@ -86,6 +89,7 @@ function displayNStores() {
     else
         nDisplay = Number(selectedVal);
     nStart = 0;
+    changeSort();
     redrawPage();
 }
 
@@ -99,6 +103,7 @@ function clearSearch() {
     workingList = storesList;
     $("#clearSearchBtn").hide();
     nStart = 0;
+    changeSort();
     redrawPage();
 }
 
@@ -116,7 +121,31 @@ function performSearch() {
     workingList = filteredStoresList;
     nStart = 0;
     $("#clearSearchBtn").show();
+    changeSort();
     redrawPage();
+}
+
+
+// Sort
+// ---------------------------------------------------- //
+
+
+function sortList() {
+    changeSort();
+    redrawPage();
+}
+
+
+function changeSort() {
+    var sortVal = $("#sortCategory").val();
+    var sortOrder = parseInt($("#sortOrder").val());
+    workingList.sort(function(a,b) {
+        var a2 = a[sortVal].toLowerCase();
+        var b2 = b[sortVal].toLowerCase();
+        if (a2 > b2) return (1 * sortOrder);
+        else if (a2 < b2) return (-1 * sortOrder);
+        return 0;
+    });
 }
 
 
@@ -134,7 +163,13 @@ $(document).ready(function() {
     displayPagination();
 
     // bind actions to events
+    $("#helpBtn").on("click", function() {
+        if ($("#helpArea").is(":visible")) $("#helpArea").hide(100);
+        else { $("#helpArea").show(100); }
+    });
     $("#displayNumber").on("change", displayNStores);
+    $("#sortCategory").on("change", sortList);
+    $("#sortOrder").on("change", sortList);
     $("#searchBtn").on("click", performSearch);
     $("#searchInput").on("keypress", function(e) {
         if (e.keyCode == 13)

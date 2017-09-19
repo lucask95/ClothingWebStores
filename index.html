@@ -24,7 +24,13 @@
 		<!-- Help
 		---------------------------------------------->
 
-		<div class="row" id="help-row">
+		<div class="row help-row help-top">
+			<div class="twelve columns">
+				<a id="helpBtn">Help</a>
+			</div>
+		</div>
+
+		<div class="row help-row hidden" id="helpArea">
 			<div class="twelve columns">
 				<h4>Help</h4>
 				<p>For some general guidelines on what things mean.</p>
@@ -97,14 +103,34 @@
 				<!-- Stores per page
 				---------------------------------------------->
 
-				<span class="formSpan">
-					Display <select id="displayNumber">
+				<div class="selectArea">
+					Sort by
+					<select id="sortCategory">
+						<option value="Name">Name</option>
+						<option value="Keywords">Keywords</option>
+						<option value="Price">Price</option>
+						<option value="Country">Country</option>
+						<option value="Notes">Notes</option>
+					</select>
+					<select id="sortOrder">
+						<option value="1">Ascending</option>
+						<option value="-1">Descending</option>
+					</select>
+				</div>
+
+				<!-- Stores per page
+				---------------------------------------------->
+
+				<div class="selectArea">
+					Display
+					<select id="displayNumber">
 						<option value="25">25</option>
 						<option value="50">50</option>
 						<option value="100">100</option>
 						<option value="all">All</option>
-					</select> stores per page.
-				</span>
+					</select>
+					stores per page.
+				</div>
 
 				<!-- Pagination
 				---------------------------------------------->

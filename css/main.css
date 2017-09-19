@@ -4,6 +4,10 @@ body {
     background-color: #fcfcfc;
 }
 
+a:hover {
+    color: #1985AD;
+}
+
 #titlebar {
     padding: 25px;
     background-color: #3b3c3d;
@@ -15,10 +19,31 @@ body {
     margin-bottom: 0;
 }
 
-#help-row {
+.help-row {
     padding: 40px;
     font-size: 1.4rem;
     background-color: #efefef;
+}
+
+.help-top {
+    padding: 10px 30px;
+    background-color: #afafaf;
+}
+
+.hidden {
+    display: none;
+}
+
+#helpBtn {
+    color: white;
+    background-color: #3b3c3d;
+    padding: 4px 10px;
+    border-radius: 25px;
+}
+
+#helpBtn:hover {
+    cursor: pointer;
+    background-color: #515151;
 }
 
 #contentarea {
@@ -31,8 +56,13 @@ body {
     padding-bottom: 0px;
 }
 
-.formSpan {
-    padding: 0px 5px;
+.selectArea {
+    padding: 0px 5px 5px;
+}
+
+.numLink {
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 .circleBtn {
@@ -48,7 +78,7 @@ body {
     color: white;
 }
 
-.formSpan select {
+.selectArea select {
     margin: 0 10px 0 10px;
     height: 30px;
     padding: 4px 8px;
