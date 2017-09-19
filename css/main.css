@@ -1,3 +1,7 @@
+/*------------------------------------------------------
+ Global
+------------------------------------------------------*/
+
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 1.3rem;
@@ -8,42 +12,51 @@ a:hover {
     color: #1985AD;
 }
 
-#titlebar {
+.hidden {
+    display: none;
+}
+
+/*------------------------------------------------------
+ In order of appearance on the page
+------------------------------------------------------*/
+
+header {
     padding: 25px;
     background-color: #3b3c3d;
     color: white;
     font-family: 'Playfair Display', serif;
+    /*
+    background-image: url('../img/clarks-db-notsolazysundaysdotcom.png');
+    background-size: cover;
+    */
 }
 
-#titlebar h1, #titlebar h2, #titlebar h3 {
+header h1, header h2, header h3 {
     margin-bottom: 0;
+}
+
+#menuRow {
+    font-size: 1.4rem;
+    background-color: #afafaf;
+    padding: 5px 30px;
+}
+
+#menuRow button {
+    border: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+    margin: 0px 25px;
+    text-decoration: underline;
+}
+
+#menuRow button:first-child {
+    margin-left: 0px;
 }
 
 .help-row {
     padding: 40px;
     font-size: 1.4rem;
     background-color: #efefef;
-}
-
-.help-top {
-    padding: 10px 30px;
-    background-color: #afafaf;
-}
-
-.hidden {
-    display: none;
-}
-
-#helpBtn {
-    color: white;
-    background-color: #3b3c3d;
-    padding: 4px 10px;
-    border-radius: 25px;
-}
-
-#helpBtn:hover {
-    cursor: pointer;
-    background-color: #515151;
 }
 
 #contentarea {
@@ -79,9 +92,13 @@ a:hover {
 }
 
 .selectArea select {
-    margin: 0 10px 0 10px;
+    margin: 0 10px;
     height: 30px;
     padding: 4px 8px;
+}
+
+.selectArea select:nth-child(2) {
+    margin-left: 0px;
 }
 
 nav {
@@ -107,4 +124,19 @@ nav ul li {
 
 #storesTable td:nth-child(5) {
     padding-right: 5px;
+}
+
+footer {
+    color: white;
+    background-color: darkgray;
+    font-size: 1.15rem;
+    padding: 20px;
+}
+
+footer a {
+    color: ghostwhite;
+}
+
+footer a:hover {
+    color: slategray;
 }

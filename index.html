@@ -5,6 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Clothing Web Stores</title>
+	<link rel="icon" type="image/png" href="img/favicon.png">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Roboto" rel="stylesheet">
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/skeleton.css">
@@ -15,20 +16,29 @@
 
 	<div class="u-full-width">
 
-		<div class="row" id="titlebar">
+		<header class="row">
 			<div class="twelve columns">
 				<h2>Clothing Web Stores</h2>
+			</div>
+		</header>
+
+		<!-- Menu
+		TODO:
+		- Adjust menu with multiple items: help, FAQ, tips, about
+		- Also, make menu buttons look better. would probably be better if they
+		  had no outline or background and were just underlined
+		---------------------------------------------->
+
+		<div class="row" id="menuRow">
+			<div class="twelve columns">
+				<button id="helpBtn">Help</button>
+				<button>FAQ</button>
+				<button>About</button>
 			</div>
 		</div>
 
 		<!-- Help
 		---------------------------------------------->
-
-		<div class="row help-row help-top">
-			<div class="twelve columns">
-				<a id="helpBtn">Help</a>
-			</div>
-		</div>
 
 		<div class="row help-row hidden" id="helpArea">
 			<div class="twelve columns">
@@ -45,6 +55,24 @@
 						when a store does not have a distinct and describable style,
 						but is a more casual style.</li>
 				</ul>
+				<h5>Price Guidelines</h5>
+				<p>Pricing category is hard to get perfect, but I try to adhere
+					to these guidelines.</p>
+				<ul>
+					<li>$ = Pretty much the lowest priced shops. Those who are
+						new to fashion and don't want to spend much should check
+						these out. Shirts will usually be $50 or below and
+						outerwear will usually not go above $150 dollars or so.</li>
+					<li>$$ = Not comfortable dropping hundreds of dollars per item,
+						but want to go a step above Uniqlo and Gap. Shirts will
+						be nearing or around $100 mark and outerwear will generally
+						be in the $100-$250 range.</li>
+					<li>$$$ = Designers, big-name brands, and more. Shirts will
+						be at least $150 and above and outerwear will cost $300+.
+						$$$ covers lots and lots of brands and designers.</li>
+					<li>$$$$ = Reserved for the most significantly expensive brands.
+						Shirts will usually be $300+ and outerwear will be over $1000</li>
+				</ul>
 				<h5>Notes</h5>
 				<ul>
 					<li>I know the UK is not a country.</li>
@@ -59,6 +87,7 @@
 							message me on reddit.</a></li>
 				</ul>
 				<h5>Useful Non-Store Pages</h5>
+				<ul>
 					<li><a href="http://www.heddels.com/sale-finder/">
 						Heddels Sale Finder</a></li>
 					<li><a href="http://www.styleforum.net/t/54258/the-official-list-of-online-stores">
@@ -93,7 +122,7 @@
 						<option value="Notes">Notes</option>
 					</select>
 					<button id="searchBtn">Search</button>
-					<button id="clearSearchBtn" onClick="clearSearch()">Clear Search</button>
+					<button id="clearSearchBtn" class="hidden" onClick="clearSearch()">Clear Search</button>
 				</span>
 
 			</div>
@@ -173,8 +202,11 @@
 
 	</div>
 
+	<footer class="row">
+		Made by <a href="http://lucask95.github.io">Lucas Keller</a>
+	</footer>
+
 	<script src="js/jquery.min.js"></script>
-	<script src="js/lodash.min.js"></script>
 	<script src="js/main.js"></script>
 
 </body>

@@ -1,5 +1,3 @@
-// TODO: Allow sort by name, price, etc.
-
 var currentPage = 1;
 var nStart = 0;
 var nDisplay = 25;
@@ -15,7 +13,7 @@ function displayTable() {
     $("#storesTable").html("");
 
     // draw N = nDisplay rows in the table
-    for(var i = nStart; i < (nStart + nDisplay); i++) {
+    for (var i = nStart; i < (nStart + nDisplay); i++) {
         var store = workingList[i];
         var rowText = "<tr><td><a href=\"" + store.URL + "\">" + store.Name +
             "</a></td><td>" + store.Keywords + "</td><td>" + store.Price +
@@ -34,7 +32,7 @@ function displayPagination() {
 
     // display numbers in the middle
     // if i == currentPage, disable click on that number
-    for(var i = 1; i <= numPages; i++) {
+    for (var i = 1; i <= numPages; i++) {
         if (i == currentPage)
             $("#pageSwitch").append("<li><strong>" + i + "</strong></li>");
         else
@@ -112,6 +110,11 @@ function performSearch() {
     var searchCategory = $("#searchCategory").val();
     filteredStoresList = [];
 
+    if (query == "") {
+        clearSearch();
+        return;
+    }
+
     for (var i = 0; i < storesList.length; i++) {
         var store = storesList[i];
         if (store[searchCategory].toLowerCase().includes(query.toLowerCase()))
@@ -135,7 +138,7 @@ function sortList() {
     redrawPage();
 }
 
-
+// TODO: Fix sort so searching for "$" gives only stores with cost "$", etc
 function changeSort() {
     var sortVal = $("#sortCategory").val();
     var sortOrder = parseInt($("#sortOrder").val());
