@@ -105,14 +105,49 @@
 		<!-- Search and pagination
 		---------------------------------------------->
 
-		<div class="row pagination-row">
+		<div class="row controls-row">
 
-			<div class="five columns">
+			<div class="six columns">
+
+				<!-- Stores per page
+				---------------------------------------------->
+
+				<div class="selectArea">
+					Display
+					<select id="displayNumber">
+						<option value="25">25</option>
+						<option value="50">50</option>
+						<option value="100">100</option>
+						<option value="all">All</option>
+					</select>
+					stores per page.
+				</div>
+
+				<!-- Go to page
+				---------------------------------------------->
+
+				<div class="selectArea">
+					Go to page
+					<input type="number" id="pageInput" placeholder="Number" />
+				</div>
+
+				<!-- Pagination
+				---------------------------------------------->
+
+				<nav>
+					<ul id="pageSwitch">
+					</ul>
+				</nav>
+
+			</div>
+
+			<div class="six columns">
 
 				<!-- Search
 				---------------------------------------------->
 
 				<span id="searchSpan">
+					<label for="searchInput">Press Enter to Search</label>
 					<input type="text" id="searchInput" placeholder="Search" />
 					<select id="searchCategory">
 						<option value="Name">Name</option>
@@ -121,15 +156,10 @@
 						<option value="Country">Country</option>
 						<option value="Notes">Notes</option>
 					</select>
-					<button id="searchBtn">Search</button>
 					<button id="clearSearchBtn" class="hidden" onClick="clearSearch()">Clear Search</button>
 				</span>
 
-			</div>
-
-			<div class="seven columns">
-
-				<!-- Stores per page
+				<!-- Sort Order
 				---------------------------------------------->
 
 				<div class="selectArea">
@@ -146,28 +176,6 @@
 						<option value="-1">Descending</option>
 					</select>
 				</div>
-
-				<!-- Stores per page
-				---------------------------------------------->
-
-				<div class="selectArea">
-					Display
-					<select id="displayNumber">
-						<option value="25">25</option>
-						<option value="50">50</option>
-						<option value="100">100</option>
-						<option value="all">All</option>
-					</select>
-					stores per page.
-				</div>
-
-				<!-- Pagination
-				---------------------------------------------->
-
-				<nav>
-					<ul id="pageSwitch">
-					</ul>
-				</nav>
 
 			</div>
 
