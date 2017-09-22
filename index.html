@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Clothing Web Stores</title>
 	<link rel="icon" type="image/png" href="img/favicon.png">
-	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Roboto" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300|Roboto" rel="stylesheet">
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/skeleton.css">
 	<link rel="stylesheet" href="css/main.css">
@@ -33,6 +33,7 @@
 			<div class="twelve columns">
 				<button id="helpBtn">Help</button>
 				<button>FAQ</button>
+				<button>Suggestions</button>
 				<button>About</button>
 			</div>
 		</div>
@@ -159,24 +160,6 @@
 					<button id="clearSearchBtn" class="hidden" onClick="clearSearch()">Clear Search</button>
 				</span>
 
-				<!-- Sort Order
-				---------------------------------------------->
-
-				<div class="selectArea">
-					Sort by
-					<select id="sortCategory">
-						<option value="Name">Name</option>
-						<option value="Keywords">Keywords</option>
-						<option value="Price">Price</option>
-						<option value="Country">Country</option>
-						<option value="Notes">Notes</option>
-					</select>
-					<select id="sortOrder">
-						<option value="1">Ascending</option>
-						<option value="-1">Descending</option>
-					</select>
-				</div>
-
 			</div>
 
 		</div>
@@ -190,11 +173,11 @@
 
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Keywords</th>
-							<th>Price</th>
-							<th>Country</th>
-							<th>Notes</th>
+							<th category="Name">Name &#9650;</th>
+							<th category="Keywords">Keywords</th>
+							<th category="Price" style="width: 10%">Price</th>
+							<th category="Country" style="width: 15%">Country</th>
+							<th category="Notes">Notes</th>
 						</tr>
 					</thead>
 
